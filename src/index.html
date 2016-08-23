@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Toast.js</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/Toast.min.css">
+</head>
+<body>
+	<div class="container">
+		
+		<section class="site-section">
+			<h1>Toast.js</h1>
+
+			<p class="about">A JavaScript prototype for Toast messages</p>
+
+			<p><iframe src="https://ghbtns.com/github-btn.html?user=ireade&repo=Toast.js&type=star&count=false" frameborder="0" scrolling="0" width="60px" height="20px"></iframe>
+
+			<a class="twitter-share-button"
+		      href="https://twitter.com/share"
+		      data-text="Toast.js - a JavaScript Prototype for Toast messages"
+		      data-url="https://github.com/ireade/Toast.js"
+		      data-via="ireaderinokun"
+		      data-related="ireaderinokun"> Tweet </a>
+		      </p>
+		    
+
+			<p>Made with <i class="twa twa-heart"></i> by <a href="https://twitter.com/ireaderinokun" target="_blank">@IreAderinokun</a></p>
+
+		</section>
+
+
+		<section class="site-section">
+			<h2>Getting Started</h2>
+
+			<ul>
+				<li>Download and include the JavaScript file (<a href="">full</a> | <a href="">minified</a> | <a href="">full ES2015</a>)</li>
+				<li>Download and include the CSS file (<a href="">full</a> | <a href="">minified</a>)</li>
+			</ul>
+
+			<p>Create a Toast -</p>
+<div class="highlight cf">
+<pre id="stepOne">new Toast(options)</pre>
+</div>	
+		</section>
+
+
+		<section class="site-section">
+			<h2>Options</h2>
+
+			<ul>
+				<li><code>options.message</code> (required) - The message to display in the toast</li>
+				<li><code>options.type</code> - The style of message. Can be <code>default</code>, <code>success</code>, <code>warning</code>, or <code>danger</code>. A class will be added to the Toast element for styling.</li>
+				<li><code>options.customButtons</code> - An array of objects for each custom button to add. Each object contains a <code>text</code> for the label of the button, and an <code>onClick</code>, which is a function to execute when the button is clicked.</li>
+			</ul>
+
+		</section>
+
+		<section class="site-section">
+			<h2>Examples</h2>
+
+			<section>
+				<h3>Simple</h3>
+
+				<p>The only required option you need to pass is the message that is displayed in the toast. This example below is the Toast that comes up when you first visit this page</p>
+
+<div class="highlight cf">
+<pre id="stepOne">new Toast({message: 'Welcome to Toast.js!'});</pre>
+</div>
+			</section>
+
+			<section>
+				<h3>Toast Style</h3>
+
+				<button id="trigger-example-2">Try it!</button>
+
+<div class="highlight cf">
+<pre id="stepOne">new Toast({
+&nbsp;&nbsp;message: 'This is a danger message. You can use this for errors etc',
+&nbsp;&nbsp;type: 'danger'
+});</pre>
+</div>
+			</section>
+
+
+			<section>
+				<h3>Custom Button Functions</h3>
+
+				<button id="trigger-example-3">Try it!</button>
+
+<div class="highlight cf">
+<pre id="stepOne">new Toast({
+&nbsp;&nbsp;message: 'This is an example with custom buttons',
+&nbsp;&nbsp;type: 'success',
+&nbsp;&nbsp;customButtons: [
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: 'Refresh the page',
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onClick: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.location.reload();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: 'Follow @ireaderinokun',
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onClick: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.open('https://twitter.com/ireaderinokun');
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;]
+});</pre>
+</div>
+			</section>
+
+
+
+
+		</section>
+
+	</div>
+
+
+
+    <script src="js/Toast.min.js"></script>
+    <script>
+    	new Toast({message: 'Welcome to Toast.js!'})
+
+
+    	document.querySelector('#trigger-example-2').addEventListener('click', function() {
+    		new Toast({
+			    message: 'This is a danger message. You can use this for errors etc',
+			    type: 'danger'
+			});
+    	});
+
+
+    	document.querySelector('#trigger-example-3').addEventListener('click', function() {
+    		new Toast({
+			    message: 'This is an example with custom buttons',
+			    type: 'success',
+			    customButtons: [
+			    	{
+			    		text: 'Refresh the page',
+			    		onClick: function() {
+			    			window.location.reload();
+			    		}
+			    	},
+			    	{
+			    		text: 'Follow @ireaderinokun',
+			    		onClick: function() {
+			    			window.open('https://twitter.com/ireaderinokun');
+			    		}
+			    	}
+			    ]
+			});
+    	});
+    </script>
+
+    <script>
+    window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+    </script> 
+</body>
+</html>
