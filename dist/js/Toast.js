@@ -10,6 +10,12 @@ function Toast(options) {
     this.options = options;
     this.options.type = options.type || 'default';
 
+    /**
+     * if it is true allow users to stack toast notifications
+     * @type {boolean}
+     */
+    this.options.stack = options.stack || false;
+
     this.toastContainerEl = document.querySelector('.toastjs-container');
     this.toastEl = document.querySelector('.toastjs');
 
@@ -70,7 +76,7 @@ Toast.prototype._close = function () {
             }
 
             resolve();
-        }, 500);
+        }, 300);
     });
 };
 
