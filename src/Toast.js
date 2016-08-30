@@ -62,7 +62,7 @@ Toast.prototype._close = function() {
 
             resolve();
 
-        }, 1000); 
+        }, 500);
     });     
 };
 
