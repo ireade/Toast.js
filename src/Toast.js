@@ -9,10 +9,11 @@ function Toast(options) {
     this.options.type = options.type || 'default';
 
     /**
-     * if it is true allow users to stack toast notifications
-     * @type {boolean}
+     * this set the time out of the toast before closing
+     * -1 means the timeout is infinity till users click on the close button
+     * @type {number}
      */
-    this.options.stack = options.stack || false;
+    this.options.time = options.time || -1;
 
     this.toastContainerEl = document.querySelector('.toastjs-container');
     this.toastEl = document.querySelector('.toastjs');
@@ -42,7 +43,7 @@ Toast.prototype._addEventListeners = function() {
 
     document.querySelector('.toastjs-btn--close').addEventListener('click', () => {
         this._close();
-    })
+    });
 
     if ( this.options.customButtons ) {
         const customButtonsElArray = Array.prototype.slice.call( document.querySelectorAll('.toastjs-btn--custom') );
@@ -81,7 +82,7 @@ Toast.prototype._open = function() {
     if ( this.options.customButtons ) {
         customButtons = this.options.customButtons.map( (customButton, index) => {
             return `<button type="button" class="toastjs-btn toastjs-btn--custom">${customButton.text}</button>`
-        } )
+        } );
         customButtons = customButtons.join('');
     }
 
@@ -93,6 +94,10 @@ Toast.prototype._open = function() {
 
     this.focusedElBeforeOpen = document.activeElement;
     document.querySelector('.toastjs-btn--close').focus();
+
+    //add timeout here
+    if(this.options.time > -1) setTimeout(()=>{this._close();}, this.options.time);//wait for the timeout before calling the close
+
 };
 
 Toast.prototype._init = function() {
@@ -112,5 +117,7 @@ Toast.prototype._init = function() {
     .then(() => {
         this._open();
         this._addEventListeners();
-    })
+    });
+
+
 };

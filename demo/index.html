@@ -116,6 +116,34 @@
 </div>
 			</section>
 
+			<!--for custom and timeout-->
+			<section>
+				<h3 id="example-4">Custom Button Functions with timeout option</h3>
+
+				<button id="trigger-example-4">Try it!</button>
+
+				<div class="highlight cf">
+<pre id="stepOne">new Toast({
+&nbsp;&nbsp;message: 'This is an example with custom buttons',
+&nbsp;&nbsp;type: 'success',
+&nbsp;&nbsp;customButtons: [
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: 'Refresh the page',
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onClick: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.location.reload();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: 'Follow @ireaderinokun',
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onClick: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.open('https://twitter.com/ireaderinokun');
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;],
+	time:5000
+});</pre>
+				</div>
+			</section>
 
 
 
@@ -127,7 +155,7 @@
 
     <script src="js/Toast.min.js"></script>
     <script>
-    	new Toast({message: 'Welcome to Toast.js!'})
+    	new Toast({message: 'Welcome to Toast.js!'});
 
 
     	document.querySelector('#trigger-example-2').addEventListener('click', function() {
@@ -158,6 +186,28 @@
 			    ]
 			});
     	});
+
+		document.querySelector('#trigger-example-4').addEventListener('click', function() {
+			new Toast({
+				message: 'This is an example with custom buttons',
+				type: 'success',
+				customButtons: [
+					{
+						text: 'Refresh the page',
+						onClick: function() {
+							window.location.reload();
+						}
+					},
+					{
+						text: 'Follow @ireaderinokun',
+						onClick: function() {
+							window.open('https://twitter.com/ireaderinokun');
+						}
+					}
+				],
+				time:5000
+			});
+		});
     </script>
 
     <script>
