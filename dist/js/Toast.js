@@ -10,6 +10,13 @@ function Toast(options) {
     this.options = options;
     this.options.type = options.type || 'default';
 
+    /**
+     * this set the time out of the toast before closing
+     * -1 means the timeout is infinity till users click on the close button
+     * @type {number}
+     */
+    this.options.time = options.time || -1;
+
     this.toastContainerEl = document.querySelector('.toastjs-container');
     this.toastEl = document.querySelector('.toastjs');
 
@@ -70,11 +77,12 @@ Toast.prototype._close = function () {
             }
 
             resolve();
-        }, 1000);
+        }, 300);
     });
 };
 
 Toast.prototype._open = function () {
+    var _this4 = this;
 
     this.toastEl.classList.add(this.options.type);
     this.toastContainerEl.setAttribute('aria-hidden', false);
@@ -91,23 +99,28 @@ Toast.prototype._open = function () {
 
     this.focusedElBeforeOpen = document.activeElement;
     document.querySelector('.toastjs-btn--close').focus();
+
+    //add timeout here
+    if (this.options.time > -1) setTimeout(function () {
+        _this4._close();
+    }, this.options.time); //wait for the timeout before calling the close
 };
 
 Toast.prototype._init = function () {
-    var _this4 = this;
+    var _this5 = this;
 
     Promise.resolve().then(function () {
-        if (_this4.toastContainerEl) {
+        if (_this5.toastContainerEl) {
             return Promise.resolve();
         }
-        return _this4._createElements();
+        return _this5._createElements();
     }).then(function () {
-        if (_this4.toastContainerEl.getAttribute('aria-hidden') == 'false') {
-            return _this4._close();
+        if (_this5.toastContainerEl.getAttribute('aria-hidden') == 'false') {
+            return _this5._close();
         }
         return Promise.resolve();
     }).then(function () {
-        _this4._open();
-        _this4._addEventListeners();
+        _this5._open();
+        _this5._addEventListeners();
     });
 };
