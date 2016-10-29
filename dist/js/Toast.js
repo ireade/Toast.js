@@ -3,7 +3,7 @@
 function Toast(options) {
 
     if (!options.message) {
-        throw new Error('Toast.js - You need to set a mesasge to display');
+        throw new Error('Toast.js - You need to set a message to display');
         return;
     }
 
