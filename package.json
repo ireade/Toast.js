@@ -1,23 +1,29 @@
 {
-  "name": "toast.js",
+  "name": "ToastJs",
   "version": "1.0.0",
-  "description": "A simple javascript prototype for creating toast messages",
-  "main": "gulpfile.js",
+  "description": "ToastJs is a javascript library that provides simple and flexible push notification popups",
+  "private": true,
   "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "keywords": ["webpack", "babel", "es6"],
+  "author": "Ire Aderinokun",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^6.4.0",
-    "babel-preset-es2015": "^6.13.2",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-clean-css": "^2.0.12",
-    "gulp-connect": "^5.0.0",
-    "gulp-postcss": "^6.1.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7"
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "buble-loader": "^0.5.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "lodash": "^4.17.10",
+    "rollup-plugin-buble": "^0.19.2"
   }
 }

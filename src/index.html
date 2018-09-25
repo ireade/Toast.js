@@ -9,8 +9,8 @@
 	<meta name="keywords" content="">
 	
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/app.css">
 	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/Toast.min.css">
 </head>
 <body>
 	<div class="container">
@@ -117,6 +117,21 @@
 			</section>
 
 
+			<section>
+				<h3 id="example-4">ToastJs With Timer</h3>
+
+				<button id="trigger-example-4">Try it!</button>
+
+<div class="highlight cf">
+<pre id="stepOne">new Toast({
+&nbsp;&nbsp;message: 'This is an example with custom buttons',
+&nbsp;&nbsp;type: 'success',
+&nbsp;&nbsp;timer: 5000
+});</pre>
+</div>
+			</section>
+
+
 
 
 		</section>
@@ -125,7 +140,7 @@
 
 
 
-    <script src="js/Toast.min.js"></script>
+    <script src="js/app.js"></script>
     <script>
     	new Toast({message: 'Welcome to Toast.js!'})
 
@@ -156,6 +171,14 @@
 			    		}
 			    	}
 			    ]
+			});
+    	});
+
+    	document.querySelector('#trigger-example-4').addEventListener('click', function() {
+    		new Toast({
+			    message: 'This is an example with timer',
+			    type: 'success',
+			    timer: 5000
 			});
     	});
     </script>
